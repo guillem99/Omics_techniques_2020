@@ -1,0 +1,169 @@
+---
+title: "Introduction to Bioconductor: Expressionset"
+author: Guillem Cortiada Rovira
+date: "19/05/2020"
+e-mail: guillem.cortiada@alum.esci.upf.edu
+GitHub: <https://github.com/guillem99/Omics_techniques_2020.git>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(Biobase)
+library(BiocManager)
+library(ggplot2)
+library(GEOquery)
+
+```
+
+## Exercise 1
+
+# Introduction
+All codes will be available in my GitHub: https://github.com/guillem99/Omics_techniques_2020.git 
+# Title
+Topical protein tyrosine kinase inhibitor effect on graft model of alopecia areata: time course
+
+# Summary
+Analysis of skin from C3H/HeJ grafted recipients with established alopecia areata (AA) following alopecic graft transplantation that were treated with topical Janus kinase (JAK) inhibitor ruxolitinib or tofacitinib for up to 24 wks. Results provide insight into molecular basis of AA pathogenesis.
+
+# Experiment Design
+We have three groups of mouse that his skin were taken at 6,12 and 24 weeks after administration of ruxolitinib(jak1i), tofacitinib(jak3i) or control pbs.
+
+# Organism
+Mus Musculus
+
+# Platform
+GPL1261: Affymetrix Mouse Genome 430 2.0 Array
+
+# Citations
+	
+Xing L, Dai Z, Jabbari A, Cerise JE et al. Alopecia areata is driven by cytotoxic T lymphocytes and is reversed by JAK inhibition. Nat Med 2014 Sep;20(9):1043-9. PMID: 25129481
+
+# GEO Dataset
+
+```{r}
+gse <- getGEO("GSE45514", GSEMatrix = TRUE)
+summary(gse)
+```
+
+```{r}
+show(gse)
+print(paste("Class = ", class(gse)))
+print(paste("Name = ", names(gse)))
+eset <- gse[[1]]
+print("esetFromGeo")
+eset
+targets <- pData(eset)
+print("Targets")
+head(targets)
+```
+
+# Expression Set
+
+```{r}
+gene_expresion <- exprs(eset)
+
+head(gene_expresion)
+
+print(paste("Number of genes and number of samples = ", dim(gene_expresion)))
+print("The expression matrix contains 31 samples in columns and they are grouped in 3 categories. then, for each of the samples we can find 45101 observations.")
+
+```
+
+
+```{r}
+print("Summary")
+summary(gene_expresion)
+print("We observe that the values change among the samples. That means we have extreme values, so, we should correct the data by normalizing it.")
+```
+
+# Histogram
+
+```{r}
+
+```
+
+```{r}
+hist(gene_expresion)
+print("As we can observe, the data needs to be normalized (applying logaritms)")
+```
+
+
+```{r}
+print("Normalizing the data")
+hist(log(gene_expresion))
+print("The data looks better. So, we need to apply this transformation to the original data.")
+exprs(eset) <- log(exprs(eset))
+```
+
+
+```{r}
+hist(exprs(eset), 1, sd)
+
+```
+
+
+```{r}
+
+```
+
+
+
+```{r}
+
+```
+
+
+
+```{r}
+
+```
+
+
+
+
+```{r}
+
+```
+
+
+
+
+```{r}
+
+```
+
+
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
+
+
+
+```{r}
+
+```
+
+
+
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
