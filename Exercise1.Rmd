@@ -18,9 +18,9 @@ library(GEOquery)
 
 ## Exercise 1
 
-# Introduction
+## Introduction
 All codes will be available in my GitHub: https://github.com/guillem99/Omics_techniques_2020.git 
-# Title
+## Title
 Topical protein tyrosine kinase inhibitor effect on graft model of alopecia areata: time course
 
 # Summary
@@ -79,9 +79,6 @@ print("We observe that the values change among the samples. That means we have e
 
 # Histogram
 
-```{r}
-
-```
 
 ```{r}
 hist(gene_expresion)
@@ -96,66 +93,96 @@ print("The data looks better. So, we need to apply this transformation to the or
 exprs(eset) <- log(exprs(eset))
 ```
 
+## Boxplots
 
 ```{r}
-hist(exprs(eset), 1, sd)
+pcs <- prcomp(exprs(eset))
+names(pcs)
+boxplot(pcs$sdev)
+plot(pcs$rotation[,1], pcs$rotation[,2], main="Representation of first two principal components")
+text(pcs$rotation[,1], pcs$rotation[,2])
+```
+
+```{r}
+summary(pcs)
+```
+
+```{r}
+print("To see the top variable genes")
+variab <- apply(gene_expresion,1, sd)
+orderedGenes <- order(variab, decreasing=TRUE)
+head(orderedGenes)
+```
+
+```{r}
+gene_expression <- exprs(eset)
+boxplot(gene_expression)
+```
+
+## Slot AssayData
+
+```{r}
+expr <- as.matrix(gene_expression)
+myeset <- ExpressionSet(expr)
+class(myeset)
+show(myeset)
+```
+
+## Information
+
+```{r}
+myInfo=list(myName="Guillem Cortiada Rovira", myLab="Bioinformatics Lab",
+          myContact="guillem.cortiada@alum.esci.upf.edu", myTitle="Practical Exercise on ExpressionSets")
+show(myInfo)
+
+myDesc <- new("MIAME", name= myInfo[["myName"]],
+            lab= myInfo[["myLab"]],
+            contact= myInfo[["myContact"]] ,
+            title=myInfo[["myTitle"]])
+print(myDesc)
+
 
 ```
 
-
-```{r}
-
-```
-
-
-
-```{r}
-
-```
-
-
-
-```{r}
-
-```
-
-
-
-
-```{r}
-
-```
-
-
-
-
-```{r}
-
-```
-
-
-
-```{r}
-
-```
-
-
-```{r}
-
-```
-
-
-
-
-```{r}
-
-```
 
 
 
 ```{r}
 
 ```
+
+## Use expression sets
+
+
+```{r}
+dim(exprs(myeset))
+class(phenoData(myeset))
+class(pData(phenoData(myeset)))
+head(pData(phenoData(myeset)))
+head(pData(myeset))
+head(pData(myeset))
+```
+
+## Creating a subset of an ExpressionSet
+
+```{r}
+smalleset <- myeset[1:15,c(1:3,6:8)]
+
+dim(exprs(smalleset))
+dim(pData(smalleset))
+head(pData(smalleset))
+all(colnames(exprs(smalleset))==rownames(pData(smalleset)))
+```
+
+
+```{r}
+print("Create a new dataset for all individuals younger than 30")
+youngEset <- myeset[,pData(myeset)$age<30]
+dim(exprs(youngEset))
+head(pData(youngEset))
+```
+
+
 
 
 
