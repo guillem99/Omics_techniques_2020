@@ -1,0 +1,47 @@
+---
+title: "Study experimental design"
+author: Guillem Cortiada Rovira
+date: "19/05/2020"
+e-mail: guillem.cortiada@alum.esci.upf.edu
+GitHub: <https://github.com/guillem99/Omics_techniques_2020.git>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Title
+Topical protein tyrosine kinase inhibitor effect on graft model of alopecia areata: time course
+
+## Introduction
+Analysis of skin from C3H/HeJ grafted recipients with established alopecia areata (AA) following alopecic graft transplantation that were treated with topical Janus kinase (JAK) inhibitor ruxolitinib or tofacitinib for up to 24 wks. Results provide insight into molecular basis of AA pathogenesis.
+
+## Experiment Design
+We have three groups of mouse that after an alopecic graft transplantation skin his skin were taken at initial time, 6, 12 and 24 weeks (in 24 weeks, we only have taken the 2 groups with treatment and only two samples in each one) after administration of ruxolitinib(jak1i), tofacitinib(jak3i) or reference substance role.
+
+Response variable = Gene expression patterns
+Groups =
+3 assays: initial time point, reference substance role
+3 assays: initial time point, tofacitinib
+3 assays: initial time point, ruxolitinib
+3 assays: 6 weeks, reference substance role
+3 assays: 6 weeks, tofacitinib
+3 assays: 6 weeks, ruxolitinib
+3 assays: 12 weeks, reference substance role
+3 assays: 12 weeks, tofacitinib
+3 assays: 12 weeks, ruxolitinib
+2 assays: 24 weeks, tofacitinib
+2 assays: 24 weeks, ruxolitinib
+
+Experimental Factors:
+Batch = (Block) Scan date
+Treatment = (treatment) Vehicle (PBS), tofacitinib, ruxolitinib
+Timepoint = (timepoint) 0 weeks, 6 weeks, 12 weeks, 24 weeks
+
+Sample size = 31 samples
+In 0, 6 and 12 weeks = (3(reference)+3(tofacitinib)+3(ruxolitinib))*3 = 27
+In 24 weeks only 2(tofacitinib)+2(ruxolitinib)
+
+
+

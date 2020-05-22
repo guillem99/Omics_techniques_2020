@@ -27,7 +27,7 @@ Topical protein tyrosine kinase inhibitor effect on graft model of alopecia area
 Analysis of skin from C3H/HeJ grafted recipients with established alopecia areata (AA) following alopecic graft transplantation that were treated with topical Janus kinase (JAK) inhibitor ruxolitinib or tofacitinib for up to 24 wks. Results provide insight into molecular basis of AA pathogenesis.
 
 # Experiment Design
-We have three groups of mouse that his skin were taken at 6,12 and 24 weeks after administration of ruxolitinib(jak1i), tofacitinib(jak3i) or control pbs.
+We have three groups of mouse that after an alopecic graft transplantation skin his skin were taken at initial time, 6, 12 and 24 weeks after administration of ruxolitinib(jak1i), tofacitinib(jak3i) or reference substance role.
 
 # Organism
 Mus Musculus
@@ -56,6 +56,7 @@ eset
 targets <- pData(eset)
 print("Targets")
 head(targets)
+rownames(exprs(gse[[1]]))
 ```
 
 # Expression Set
@@ -66,16 +67,14 @@ gene_expresion <- exprs(eset)
 head(gene_expresion)
 
 print(paste("Number of genes and number of samples = ", dim(gene_expresion)))
-print("The expression matrix contains 31 samples in columns and they are grouped in 3 categories. then, for each of the samples we can find 45101 observations.")
-
 ```
-
+The expression matrix contains 31 samples in columns and they are grouped in 3 categories. then, for each of the samples we can find 45101 observations.
 
 ```{r}
 print("Summary")
 summary(gene_expresion)
-print("We observe that the values change among the samples. That means we have extreme values, so, we should correct the data by normalizing it.")
 ```
+We observe that the values change among the samples. That means we have extreme values, so, we should correct the data by normalizing it.
 
 # Histogram
 
@@ -146,10 +145,6 @@ print(myDesc)
 
 
 
-
-```{r}
-
-```
 
 ## Use expression sets
 
