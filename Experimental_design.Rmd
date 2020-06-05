@@ -25,7 +25,11 @@ We have three groups of mouse that after an alopecic graft transplantation skin 
 
 
 Response variable = Gene expression patterns
+<<<<<<< HEAD
 Groups: 3 groups (reference, treated with tofacitinib(jak3i), treated with ruxolitinib(jak1i)) (3 biological replicates were taken at each time point for each treatment modality)
+=======
+Groups: 3 groups (reference, treated with tofacitinib(jak3i), treated with ruxolitinib(jak1i))
+>>>>>>> 85a1cc3cf92a26bfbf690b8256f2786e3866b5df
 3 assays: initial time point, reference substance role
 3 assays: initial time point, tofacitinib
 3 assays: initial time point, ruxolitinib
@@ -57,5 +61,15 @@ GPL1261: Affymetrix Mouse Genome 430 2.0 Array
 
 # Citations
 Xing L, Dai Z, Jabbari A, Cerise JE et al. Alopecia areata is driven by cytotoxic T lymphocytes and is reversed by JAK inhibition. Nat Med 2014 Sep;20(9):1043-9. PMID: 25129481
+
+# Organism
+Mus Musculus
+
+# Platform
+GPL1261: Affymetrix Mouse Genome 430 2.0 Array
+
+# Citations
+Xing L, Dai Z, Jabbari A, Cerise JE et al. Alopecia areata is driven by cytotoxic T lymphocytes and is reversed by JAK inhibition. Nat Med 2014 Sep;20(9):1043-9. PMID: 25129481
+
 
 
